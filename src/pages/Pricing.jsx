@@ -2,7 +2,7 @@ import React from "react";
 import HomeLine from "../components/HomeLine";
 
 import { Row, Col } from "react-bootstrap";
-import PricingCard from "../components/PricingCard";
+import PricingRow from "../components/PricingRow";
 
 const Pricing = () => {
   return (
@@ -19,11 +19,12 @@ const Pricing = () => {
           <HomeLine />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <PricingCard />
-        </Col>
-      </Row>
+      <PricingRow
+        price={30}
+        text="          We can store your boxes for the whole summer for only $30 a box! Our
+          competitiors charge anywhere from 25-50% more than that, and they
+          don't move for you! Now that's what you call a bargain."
+      />
       <Row>
         <Col>
           <HomeLine />

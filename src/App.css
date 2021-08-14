@@ -37,56 +37,40 @@
   }
 }
 
-.fade-in-5 {
-  animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s;
+@keyframes centerToLeft {
+  from {
+    transform: translate(0px);
+  }
+  to {
+    transform: translate(250px);
+  }
 }
-@keyframes fadeIn {
-  0% {
+
+@keyframes fadeInPriceText {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
 
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.fadeInPriceTextAnimation {
+  animation-name: fadeInPriceText;
+  animation-duration: 3s;
 }
 
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.centerToLeftAnimation {
+  animation-name: centerToLeft;
+  animation-duration: 1s;
 }
 
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-ms-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.navbarBackground {
+  background: linear-gradient(
+    90deg,
+    rgba(150, 238, 255, 1) 0%,
+    rgba(155, 219, 251, 1) 100%
+  );
 }
 
 .roundedCorners {

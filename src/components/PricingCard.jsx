@@ -2,19 +2,18 @@ import React, { useState } from "react";
 
 import { Card } from "react-bootstrap";
 
-const PricingCard = () => {
+const PricingCard = ({ price }) => {
   const [hover, setHover] = useState(false);
 
   return (
     <Card
       style={{
         width: "18rem",
-        margin: "auto",
         marginTop: 30,
         marginBottom: 30,
         backgroundColor: "rgb(90, 207, 232)",
       }}
-      className={`animate__animated animate__fadeIn roundedCorners ${
+      className={`centerToLeftAnimation animate__animated animate__fadeIn roundedCorners ${
         hover && "shadow"
       } clickable borderless`}
       onMouseOver={() => setHover(true)}
@@ -26,7 +25,7 @@ const PricingCard = () => {
             className="text-light"
             style={{ fontSize: 100, fontFamily: "Roboto" }}
           >
-            $45
+            ${price}
           </Card.Title>
           <Card.Text className="text-light" style={{ fontSize: 30 }}>
             Per Box
