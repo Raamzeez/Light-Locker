@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -37,15 +41,6 @@
   }
 }
 
-@keyframes centerToLeft {
-  from {
-    transform: translate(0px);
-  }
-  to {
-    transform: translate(250px);
-  }
-}
-
 @keyframes fadeInPriceText {
   from {
     opacity: 0;
@@ -55,14 +50,138 @@
   }
 }
 
-.fadeInPriceTextAnimation {
-  animation-name: fadeInPriceText;
-  animation-duration: 3s;
+.greenAnimationClass {
+  background: linear-gradient(270deg, #3ed278, #2bbd84);
+  background-size: 400% 400%;
+
+  -webkit-animation: greenAnimation 3s ease infinite;
+  -moz-animation: greenAnimation 3s ease infinite;
+  animation: greenAnimation 3s ease infinite;
 }
 
-.centerToLeftAnimation {
-  animation-name: centerToLeft;
-  animation-duration: 1s;
+@-webkit-keyframes greenAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes greenAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes greenAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.redAnimationClass {
+  background: linear-gradient(270deg, #f34a4a, #dd438c);
+  background-size: 400% 400%;
+
+  -webkit-animation: redAnimation 30s ease infinite;
+  -moz-animation: redAnimation 30s ease infinite;
+  animation: redAnimation 30s ease infinite;
+}
+
+@-webkit-keyframes redAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes redAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes redAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.blueAnimationClass {
+  background: linear-gradient(270deg, #10b1d5, #108ed5);
+  background-size: 400% 400%;
+
+  -webkit-animation: blueAnimation 5s ease infinite;
+  -moz-animation: blueAnimation 5s ease infinite;
+  animation: blueAnimation 5s ease infinite;
+}
+
+@-webkit-keyframes blueAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes blueAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes blueAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.fadeInPriceTextAnimation {
+  animation-name: fadeInPriceText;
+  animation-duration: 2s;
 }
 
 .navbarBackground {

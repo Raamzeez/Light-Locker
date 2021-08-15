@@ -2,20 +2,21 @@ import React, { useState } from "react";
 
 import { Card } from "react-bootstrap";
 
-const PricingCard = ({ price }) => {
+const PricingCard = ({ heading, headingSize, subtext, classes }) => {
   const [hover, setHover] = useState(false);
 
   return (
     <Card
       style={{
-        width: "18rem",
+        // width: "18rem",
+        width: "80%",
+        margin: "auto",
         marginTop: 30,
         marginBottom: 30,
-        backgroundColor: "rgb(90, 207, 232)",
       }}
-      className={`centerToLeftAnimation animate__animated animate__fadeIn roundedCorners ${
-        hover && "shadow"
-      } clickable borderless`}
+      className={`roundedCorners shadow-sm borderless shadow clickable ${
+        hover && "shadow-lg"
+      } ${classes && classes}`}
       onMouseOver={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -23,12 +24,15 @@ const PricingCard = ({ price }) => {
         <Card.Body>
           <Card.Title
             className="text-light"
-            style={{ fontSize: 100, fontFamily: "Roboto" }}
+            style={{
+              fontSize: headingSize ? headingSize : 100,
+              fontFamily: "Roboto",
+            }}
           >
-            ${price}
+            {heading}
           </Card.Title>
-          <Card.Text className="text-light" style={{ fontSize: 30 }}>
-            Per Box
+          <Card.Text className="text-light" style={{ fontSize: 20 }}>
+            {subtext}
           </Card.Text>
         </Card.Body>
       </div>

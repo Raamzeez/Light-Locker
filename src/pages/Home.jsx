@@ -16,6 +16,7 @@ const Home = () => {
           >
             Light Locker
           </h1>
+          {/* <img src="../images/lightLockerLogo.png" alt="Light Locker Logo" /> */}
           <p
             className="text-center animate__animated animate__fadeInUp"
             style={{ marginTop: 15, fontSize: 20 }}
