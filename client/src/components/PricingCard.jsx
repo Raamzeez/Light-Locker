@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-
 import { Card } from "react-bootstrap";
 
-const PricingCard = ({ heading, headingSize, subtext, classes }) => {
+const PricingCard = ({
+  heading,
+  headingSize,
+  subtext,
+  classes,
+  onClickHandler,
+}) => {
   const [hover, setHover] = useState(false);
 
   return (
@@ -19,6 +24,7 @@ const PricingCard = ({ heading, headingSize, subtext, classes }) => {
       } ${classes && classes}`}
       onMouseOver={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={onClickHandler}
     >
       <div className="text-center">
         <Card.Body>

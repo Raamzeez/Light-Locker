@@ -1,12 +1,19 @@
 import React from "react";
-import HomeLine from "../components/HomeLine";
-
 import { Row, Col } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import HomeLine from "../components/HomeLine";
 import PricingCard from "../components/PricingCard";
+
+const notify = (itemName, quantity) => {
+  toast.success(`${quantity} ${itemName} added to your cart!`, {
+    autoClose: 3000,
+  });
+};
 
 const Pricing = () => {
   return (
     <div>
+      <ToastContainer />
       <Row>
         <Col>
           <h1 className="text-center" style={{ marginTop: 30 }}>
@@ -34,19 +41,18 @@ const Pricing = () => {
             classes={
               "animate__animated animate__slideInRight redAnimationClass"
             }
+            onClickHandler={() => notify("Large Box", 1)}
           />
-          <img
-            src="https://image.flaticon.com/icons/png/512/81/81227.png"
-            height={"30%"}
-            width={"30%"}
-            alt="Box Icon"
-            style={{ marginLeft: "33.5%", marginTop: 10, marginBottom: 0 }}
-          />
+          <div className="text-center">
+            <i
+              className="fas fa-box-open"
+              style={{ fontSize: 100, marginBottom: 30, marginTop: 30 }}
+            />
+          </div>
           <h2
             className="text-center"
             style={{
               marginLeft: 10,
-              marginTop: 30,
               lineHeight: 1.25,
             }}
           >
@@ -58,19 +64,18 @@ const Pricing = () => {
             heading={"$14.99"}
             subtext={"(Medium) A Box/Month"}
             classes="animate__animated animate__fadeIn greenAnimationClass"
+            onClickHandler={() => notify("Medium Box", 1)}
           />
-          <img
-            src="https://image.flaticon.com/icons/png/512/81/81227.png"
-            height={"25%"}
-            width={"25%"}
-            alt="Box Icon"
-            style={{ marginLeft: "40%", marginBottom: 0, marginTop: 30 }}
-          />
+          <div className="text-center">
+            <i
+              className="fas fa-box-open"
+              style={{ fontSize: 80, marginBottom: 50, marginTop: 30 }}
+            />
+          </div>
           <h2
             className="text-center"
             style={{
               marginLeft: 10,
-              marginTop: 43,
               lineHeight: 1.25,
             }}
           >
@@ -82,19 +87,18 @@ const Pricing = () => {
             heading={"$9.99"}
             subtext={"(Small) A Box/Month"}
             classes="animate__animated animate__slideInLeft blueAnimationClass"
+            onClickHandler={() => notify("Small Box", 1)}
           />
-          <img
-            src="https://image.flaticon.com/icons/png/512/81/81227.png"
-            height={"20%"}
-            width={"20%"}
-            alt="Box Icon"
-            style={{ marginLeft: "43%", marginBottom: 0, marginTop: 50 }}
-          />
+          <div className="text-center">
+            <i
+              className="fas fa-box-open"
+              style={{ fontSize: 60, marginBottom: 70, marginTop: 30 }}
+            />
+          </div>
           <h2
             className="text-center"
             style={{
               marginLeft: 10,
-              marginTop: 48,
               lineHeight: 1.25,
             }}
           >
@@ -130,6 +134,7 @@ const Pricing = () => {
             heading="$29.99"
             subtext="Bike Storage"
             classes="orangeAnimationClass"
+            onClickHandler={() => notify("Bike Storage", 1)}
           />
           <div className="text-center">
             <i
@@ -143,6 +148,7 @@ const Pricing = () => {
             heading="$14.99"
             subtext="Fridge Storage (1.8-2.7 cubic feet)"
             classes="orangeAnimationClass"
+            onClickHandler={() => notify()}
           />
           <div className="text-center">
             <i
@@ -156,6 +162,7 @@ const Pricing = () => {
             heading="$34.99"
             subtext="Twin Mattress Storage"
             classes="orangeAnimationClass"
+            onClickHandler={() => notify("Twin Mattress Storage", 1)}
           />
           <div className="text-center">
             <i
@@ -171,6 +178,7 @@ const Pricing = () => {
             heading="$34.99"
             subtext="Storing a Table"
             classes="purpleAnimationClass"
+            onClickHandler={() => notify("Table Storage", 1)}
           />
           <div className="text-center">
             <i
@@ -184,6 +192,7 @@ const Pricing = () => {
             heading="$19.99"
             subtext="Storing a Small TV (< 35 inches)"
             classes="purpleAnimationClass"
+            onClickHandler={() => notify("Small TV Storage", 1)}
           />
           <div className="text-center">
             <i
@@ -197,6 +206,7 @@ const Pricing = () => {
             heading="$29.99"
             subtext="Storing a Big TV ( >= 35 inches)"
             classes="purpleAnimationClass"
+            onClickHandler={() => notify("Big TV Storage", 1)}
           />
           <div className="text-center">
             <i

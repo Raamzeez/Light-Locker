@@ -13,6 +13,7 @@ const HomeNavbar = () => {
             <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/about">About Us</Nav.Link>
             <Nav.Link href="/pricing">Pricing</Nav.Link>
+            <Nav.Link href="/cart">Cart</Nav.Link>
             <Nav.Link href="/review">Reviews</Nav.Link>
           </Nav>
         </Navbar.Collapse>
