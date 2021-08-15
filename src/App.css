@@ -50,6 +50,92 @@ body {
   }
 }
 
+.purpleAnimationClass {
+  background: linear-gradient(270deg, #d271ff, #9131ff);
+  background-size: 400% 400%;
+
+  -webkit-animation: purpleAnimation 4s ease infinite;
+  -moz-animation: purpleAnimation 4s ease infinite;
+  animation: purpleAnimation 4s ease infinite;
+}
+
+@-webkit-keyframes purpleAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes purpleAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes purpleAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.orangeAnimationClass {
+  background: linear-gradient(270deg, #f5b959, #f0cf4c);
+  background-size: 400% 400%;
+
+  -webkit-animation: orangeAnimation 5s ease infinite;
+  -moz-animation: orangeAnimation 5s ease infinite;
+  animation: orangeAnimation 5s ease infinite;
+}
+
+@-webkit-keyframes orangeAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes orangeAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes orangeAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .greenAnimationClass {
   background: linear-gradient(270deg, #3ed278, #2bbd84);
   background-size: 400% 400%;

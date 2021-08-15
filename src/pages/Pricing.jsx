@@ -119,7 +119,101 @@ const Pricing = () => {
       </Row>
       <Row>
         <Col>
-          <h2 className="text-center">Appliances</h2>
+          <h2 className="text-center" style={{ marginBottom: 30 }}>
+            Appliances <span className="text-muted">(Cost Per Month)</span>
+          </h2>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <PricingCard
+            heading="$29.99"
+            subtext="Bike Storage"
+            classes="orangeAnimationClass"
+          />
+          <div className="text-center">
+            <i
+              className="fas fa-bicycle"
+              style={{ fontSize: 75, marginBottom: 60 }}
+            />
+          </div>
+        </Col>
+        <Col>
+          <PricingCard
+            heading="$15.99"
+            subtext="Fridge Storage (1.8-2.7 cubic feet)"
+            classes="orangeAnimationClass"
+          />
+          <div className="text-center">
+            <i
+              className="fas fa-cubes"
+              style={{ fontSize: 75, marginBottom: 60 }}
+            />
+          </div>
+        </Col>
+        <Col>
+          <PricingCard
+            heading="$34.99"
+            subtext="Twin Mattress Storage"
+            classes="orangeAnimationClass"
+          />
+          <div className="text-center">
+            <i
+              className="fas fa-bed"
+              style={{ fontSize: 75, marginBottom: 60 }}
+            />
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <PricingCard
+            heading="$34.99"
+            subtext="Storing a Table"
+            classes="purpleAnimationClass"
+          />
+          <div className="text-center">
+            <i
+              className="fab fa-accusoft"
+              style={{ fontSize: 75, marginBottom: 60 }}
+            />
+          </div>
+        </Col>
+        <Col>
+          <PricingCard
+            heading="$19.99"
+            subtext="Storing a Small TV (< 35 inches)"
+            classes="purpleAnimationClass"
+          />
+          <div className="text-center">
+            <i
+              className="fas fa-tv"
+              style={{ fontSize: 50, marginBottom: 60 }}
+            />
+          </div>
+        </Col>
+        <Col>
+          <PricingCard
+            heading="$29.99"
+            subtext="Storing a Big TV ( >= 35 inches)"
+            classes="purpleAnimationClass"
+          />
+          <div className="text-center">
+            <i
+              className="fas fa-tv"
+              style={{ fontSize: 75, marginBottom: 60 }}
+            />
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <HomeLine />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h1 className="text-center">Insurance</h1>
         </Col>
       </Row>
       <Row>
