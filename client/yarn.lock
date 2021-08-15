@@ -150,7 +150,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*":
+"@types/jest@*", "@types/jest@^27.0.1":
   "integrity" "sha512-HTLpVXHrY69556ozYkcq47TtQJXpcWAWfkoqz+ZGz2JnmZhzlRjprCIyFnetSy8gpDWwTTGBcRVv1J1I1vBrHw=="
   "resolved" "https://registry.npmjs.org/@types/jest/-/jest-27.0.1.tgz"
   "version" "27.0.1"
@@ -158,15 +158,22 @@
     "jest-diff" "^27.0.0"
     "pretty-format" "^27.0.0"
 
-"@types/node@*":
-  "integrity" "sha512-vFHy/ezP5qI0rFgJ7aQnjDXwAMrG0KqqIH7tQG5PPv3BWBayOPIQNBjVc/P6hhdZfMx51REc6tfDNXHUio893g=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-14.14.31.tgz"
-  "version" "14.14.31"
+"@types/node@*", "@types/node@^16.6.1":
+  "integrity" "sha512-Sr7BhXEAer9xyGuCN3Ek9eg9xPviCF2gfu9kTfuU2HkTVAMYSDeX40fvpmo72n5nansg3nsBjuQBrsS28r+NUw=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-16.6.1.tgz"
+  "version" "16.6.1"
 
 "@types/prop-types@*", "@types/prop-types@^15.7.3":
   "integrity" "sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ=="
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.4.tgz"
   "version" "15.7.4"
+
+"@types/react-dom@^17.0.9":
+  "integrity" "sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg=="
+  "resolved" "https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.9.tgz"
+  "version" "17.0.9"
+  dependencies:
+    "@types/react" "*"
 
 "@types/react-transition-group@^4.4.1":
   "integrity" "sha512-KibDWL6nshuOJ0fu8ll7QnV/LVTo3PzQ9aCPnRUYPfX7eZohHwLIdNHj7pftanREzHNP4/nJa8oeM73uSiavMQ=="
@@ -175,10 +182,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@>=16.14.8", "@types/react@>=16.9.11":
-  "integrity" "sha512-nrfi7I13cAmrd0wje8czYpf5SFbryczCtPzFc6ijqvdjKcyA3tCvGxwchOUlxb2ucBPuJ9Y3oUqKrRqZvrz0lw=="
-  "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.17.tgz"
-  "version" "17.0.17"
+"@types/react@*", "@types/react@^17.0.18", "@types/react@>=16.14.8", "@types/react@>=16.9.11":
+  "integrity" "sha512-YTLgu7oS5zvSqq49X5Iue5oAbVGhgPc5Au29SJC4VeE17V6gASoOxVkUDy9pXFMRFxCWCD9fLeweNFizo3UzOg=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.18.tgz"
+  "version" "17.0.18"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -8536,6 +8543,11 @@
   "integrity" "sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c="
   "resolved" "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   "version" "0.0.6"
+
+"typescript@^4.3.5":
+  "integrity" "sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA=="
+  "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.3.5.tgz"
+  "version" "4.3.5"
 
 "uglify-js@^2.8.29":
   "integrity" "sha1-KcVzMUgFe7Th913zW3qcty5qWd0="

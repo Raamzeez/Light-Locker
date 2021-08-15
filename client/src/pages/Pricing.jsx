@@ -140,7 +140,7 @@ const Pricing = () => {
         </Col>
         <Col>
           <PricingCard
-            heading="$15.99"
+            heading="$14.99"
             subtext="Fridge Storage (1.8-2.7 cubic feet)"
             classes="orangeAnimationClass"
           />
