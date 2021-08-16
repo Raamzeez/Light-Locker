@@ -1,4 +1,4 @@
 # Light-Locker
-![alt text](https://drive.google.com/file/d/1N02MJVnTKOnTDDFjS5sVabd2m4ACxrQk/view?usp=sharing)
+![Light Locker Logo](https://ibb.co/5B946XG)
 
 The world's best solution to dorm moving
