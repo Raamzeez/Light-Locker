@@ -1,11 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
+import { Row, Col } from "react-bootstrap";
 import HomeCard from "../components/HomeCard";
 import HomeLine from "../components/HomeLine";
-
-import { Row, Col } from "react-bootstrap";
 import HomePoints from "../components/HomePoints";
 
-const Home = () => {
+const Home: FC = () => {
   return (
     <div>
       <Row>
@@ -69,7 +68,7 @@ const Home = () => {
               marginTop: 30,
               marginBottom: 30,
             }}
-            allowfullscreen=""
+            allowFullScreen={true}
             loading="lazy"
           />
         </Col>

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { Container, Navbar, Nav } from "react-bootstrap";
 
-const HomeNavbar = () => {
+const HomeNavbar: FC = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>

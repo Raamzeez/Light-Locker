@@ -1,11 +1,13 @@
 import dotenv from "dotenv";
 dotenv.config({});
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-import { sendEmailToClient } from "./lib/sendEmailToClient";
+import { sendEmailToClient } from "./lib/util/sendEmailToClient";
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import helmet from "helmet";
+import { iProduct } from "./lib/interfaces/product";
+import { sendErrorResponse } from "./lib/interfaces/error";
 
 const app = express();
 
@@ -18,6 +20,27 @@ const PORT = process.env.PORT || 5000;
 
 app.get("/", (req: Request, res: Response) => {
   return res.status(200).send("OK");
+});
+
+app.get("/products", async (req: Request, res: Response) => {
+  const products: iProduct[] = await stripe.products.list({});
+  res.status(200).send(products);
+});
+
+app.post(`/price`, async (req: Request, res: Response) => {
+  const { id } = req.body;
+  if (id) {
+    const product: iProduct = await stripe.prices.retrieve(id);
+    if (!product) {
+      return sendErrorResponse(
+        res,
+        "Invalid ID",
+        "ID did not match to a product"
+      );
+    }
+    return res.status(200).send(product);
+  }
+  return sendErrorResponse(res, "No ID", "No ID was provided");
 });
 
 app.post("/checkout", async (req, res) => {

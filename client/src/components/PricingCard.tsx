@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Card } from "react-bootstrap";
 
-const PricingCard = ({
+interface iProps {
+  heading: string;
+  subtext: string;
+  classes: string;
+  onClickHandler: React.MouseEventHandler;
+}
+
+const PricingCard: FC<iProps> = ({
   heading,
-  headingSize,
   subtext,
   classes,
   onClickHandler,
@@ -31,7 +37,7 @@ const PricingCard = ({
           <Card.Title
             className="text-light"
             style={{
-              fontSize: headingSize ? headingSize : 100,
+              fontSize: 100,
               fontFamily: "Roboto",
             }}
           >

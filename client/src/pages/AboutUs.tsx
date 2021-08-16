@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { Col, Row } from "react-bootstrap";
 import HomeLine from "../components/HomeLine";
 
-const AboutUs = () => {
+const AboutUs: FC = () => {
   return (
     <div>
       <Row>

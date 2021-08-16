@@ -1,7 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import { Card } from "react-bootstrap";
 
-const HomeCard = ({ heading, body }) => {
+interface iProps {
+  heading: string;
+  body: string;
+}
+
+const HomeCard: FC<iProps> = ({ heading, body }) => {
   return (
     <div className="text-center">
       <Card

@@ -1,6 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
-const HomePoints = ({ messages }) => {
+interface iProps {
+  messages: string[];
+}
+
+const HomePoints: FC<iProps> = ({ messages }) => {
   return (
     <div className="text-center">
       <ul style={{ listStylePosition: "inside" }}>

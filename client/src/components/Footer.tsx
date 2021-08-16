@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const Footer = () => {
+const Footer: FC = () => {
   return (
     <footer
       className="text-center"

@@ -1,16 +1,37 @@
-import React from "react";
+import React, { FC } from "react";
 import { Row, Col } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import HomeLine from "../components/HomeLine";
 import PricingCard from "../components/PricingCard";
+import { iCartItem } from "../lib/interfaces/cartItem";
 
-const notify = (itemName, quantity) => {
-  toast.success(`${quantity} ${itemName} added to your cart!`, {
-    autoClose: 3000,
-  });
-};
+const Pricing: FC = () => {
+  const addToCart = (name: string, iconClass: string) => {
+    try {
+      const itemsKey = localStorage.getItem("items");
+      const items = itemsKey ? JSON.parse(itemsKey) : [];
+      let foundItem = false;
+      items.forEach((item: iCartItem, index: number) => {
+        if (item.name === name) {
+          foundItem = true;
+          let quantity = item.quantity;
+          quantity++;
+          items[index] = { name, quantity, iconClass };
+        }
+      });
+      if (!foundItem) {
+        items.push({ name, quantity: 1, iconClass });
+      }
+      localStorage.setItem("items", JSON.stringify(items));
+      toast.success(`A ${name} added to your cart!`, {
+        autoClose: 3000,
+      });
+    } catch (err) {
+      console.error(err);
+      toast.error("Error - We were unable to add your item to the cart");
+    }
+  };
 
-const Pricing = () => {
   return (
     <div>
       <ToastContainer />
@@ -41,7 +62,7 @@ const Pricing = () => {
             classes={
               "animate__animated animate__slideInRight redAnimationClass"
             }
-            onClickHandler={() => notify("Large Box", 1)}
+            onClickHandler={() => addToCart("Large Box", "fas fa-box-open")}
           />
           <div className="text-center">
             <i
@@ -64,7 +85,7 @@ const Pricing = () => {
             heading={"$14.99"}
             subtext={"(Medium) A Box/Month"}
             classes="animate__animated animate__fadeIn greenAnimationClass"
-            onClickHandler={() => notify("Medium Box", 1)}
+            onClickHandler={() => addToCart("Medium Box", "fas fa-box-open")}
           />
           <div className="text-center">
             <i
@@ -87,7 +108,7 @@ const Pricing = () => {
             heading={"$9.99"}
             subtext={"(Small) A Box/Month"}
             classes="animate__animated animate__slideInLeft blueAnimationClass"
-            onClickHandler={() => notify("Small Box", 1)}
+            onClickHandler={() => addToCart("Small Box", "fas fa-box-open")}
           />
           <div className="text-center">
             <i
@@ -134,7 +155,7 @@ const Pricing = () => {
             heading="$29.99"
             subtext="Bike Storage"
             classes="orangeAnimationClass"
-            onClickHandler={() => notify("Bike Storage", 1)}
+            onClickHandler={() => addToCart("Bike Storage", "fas fa-bicycle")}
           />
           <div className="text-center">
             <i
@@ -148,7 +169,7 @@ const Pricing = () => {
             heading="$14.99"
             subtext="Fridge Storage (1.8-2.7 cubic feet)"
             classes="orangeAnimationClass"
-            onClickHandler={() => notify()}
+            onClickHandler={() => addToCart("Fridge Storage", "fas fa-cubes")}
           />
           <div className="text-center">
             <i
@@ -162,7 +183,9 @@ const Pricing = () => {
             heading="$34.99"
             subtext="Twin Mattress Storage"
             classes="orangeAnimationClass"
-            onClickHandler={() => notify("Twin Mattress Storage", 1)}
+            onClickHandler={() =>
+              addToCart("Twin Mattress Storage", "fas fa-bed")
+            }
           />
           <div className="text-center">
             <i
@@ -178,7 +201,7 @@ const Pricing = () => {
             heading="$34.99"
             subtext="Storing a Table"
             classes="purpleAnimationClass"
-            onClickHandler={() => notify("Table Storage", 1)}
+            onClickHandler={() => addToCart("Table Storage", "fab fa-accusoft")}
           />
           <div className="text-center">
             <i
@@ -192,7 +215,7 @@ const Pricing = () => {
             heading="$19.99"
             subtext="Storing a Small TV (< 35 inches)"
             classes="purpleAnimationClass"
-            onClickHandler={() => notify("Small TV Storage", 1)}
+            onClickHandler={() => addToCart("Small TV Storage", "fas fa-tv")}
           />
           <div className="text-center">
             <i
@@ -206,7 +229,7 @@ const Pricing = () => {
             heading="$29.99"
             subtext="Storing a Big TV ( >= 35 inches)"
             classes="purpleAnimationClass"
-            onClickHandler={() => notify("Big TV Storage", 1)}
+            onClickHandler={() => addToCart("Big TV Storage", "fas fa-tv")}
           />
           <div className="text-center">
             <i
