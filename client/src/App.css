@@ -50,6 +50,14 @@ body {
   }
 }
 
+.cartBackground {
+  background: linear-gradient(
+    90deg,
+    rgba(175, 232, 244, 1) 0%,
+    rgba(187, 231, 252, 1) 100%
+  );
+}
+
 .purpleAnimationClass {
   background: linear-gradient(270deg, #d271ff, #9131ff);
   background-size: 400% 400%;

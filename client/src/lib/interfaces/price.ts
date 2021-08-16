@@ -1,3 +1,6 @@
+import { iRecurring } from "./recurring";
+import { iTransformQuantity } from "./transformQuantity";
+
 export interface iPrice {
   id: string;
   object: string;

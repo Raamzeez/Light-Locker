@@ -8,7 +8,10 @@ export const fetchProduct = async (itemName: string): Promise<iProduct> => {
   if (response.status !== 200) {
     //Error Handling
   }
-  const products: iProduct[] = response.data;
-  const product = products.filter((product) => product.name === itemName)[0];
+  const products = response.data;
+  console.log(products);
+  const product = products.data.filter(
+    (product: iProduct) => product.name === itemName
+  )[0];
   return product;
 };

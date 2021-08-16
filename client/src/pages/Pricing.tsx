@@ -1,37 +1,11 @@
 import React, { FC } from "react";
 import { Row, Col } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import HomeLine from "../components/HomeLine";
 import PricingCard from "../components/PricingCard";
-import { iCartItem } from "../lib/interfaces/cartItem";
+import { addToCart } from "../lib/util/addToCart";
 
 const Pricing: FC = () => {
-  const addToCart = (name: string, iconClass: string) => {
-    try {
-      const itemsKey = localStorage.getItem("items");
-      const items = itemsKey ? JSON.parse(itemsKey) : [];
-      let foundItem = false;
-      items.forEach((item: iCartItem, index: number) => {
-        if (item.name === name) {
-          foundItem = true;
-          let quantity = item.quantity;
-          quantity++;
-          items[index] = { name, quantity, iconClass };
-        }
-      });
-      if (!foundItem) {
-        items.push({ name, quantity: 1, iconClass });
-      }
-      localStorage.setItem("items", JSON.stringify(items));
-      toast.success(`A ${name} added to your cart!`, {
-        autoClose: 3000,
-      });
-    } catch (err) {
-      console.error(err);
-      toast.error("Error - We were unable to add your item to the cart");
-    }
-  };
-
   return (
     <div>
       <ToastContainer />
@@ -229,7 +203,7 @@ const Pricing: FC = () => {
             heading="$29.99"
             subtext="Storing a Big TV ( >= 35 inches)"
             classes="purpleAnimationClass"
-            onClickHandler={() => addToCart("Big TV Storage", "fas fa-tv")}
+            onClickHandler={() => addToCart("Large TV Storage", "fas fa-tv")}
           />
           <div className="text-center">
             <i

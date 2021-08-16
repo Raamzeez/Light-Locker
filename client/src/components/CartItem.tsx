@@ -27,22 +27,29 @@ const CartItem: FC<iProps> = ({
               className={iconClass}
               style={{
                 fontSize: fontSize ? fontSize : 50,
+                marginTop: 30,
                 marginBottom: 30,
               }}
             />
           </div>
         </Col>
         <Col lg={3}>
-          <h3 className="text-center">{name}</h3>
+          <h3 className="text-center" style={{ marginTop: 30 }}>
+            {name}
+          </h3>
         </Col>
         <Col lg={2}>
-          <h3 className="text-center">{quantity}</h3>
+          <h3 className="text-center" style={{ marginTop: 30 }}>
+            {quantity}
+          </h3>
         </Col>
         <Col lg={2}>
-          <h3 className="text-center">{price}</h3>
+          <h3 className="text-center" style={{ marginTop: 30 }}>
+            ${price / 100}
+          </h3>
         </Col>
         <Col lg={4}>
-          <div className="text-center">
+          <div className="text-center" style={{ marginTop: 30 }}>
             <i
               className="fas fa-times-circle clickable"
               style={{ fontSize: 35, color: "red" }}
