@@ -50,6 +50,18 @@ body {
   }
 }
 
+.checkoutButton {
+  font-size: 17.5px;
+  border-radius: 12px;
+  border: none;
+  background-color: rgb(95, 196, 255);
+}
+
+.checkoutButton:hover {
+  box-shadow: 0px 0px 10px 0px rgb(95, 196, 255);
+  background-color: rgb(60, 184, 255);
+}
+
 .cartBackground {
   background: linear-gradient(
     90deg,

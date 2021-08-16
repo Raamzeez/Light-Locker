@@ -12,6 +12,7 @@ export const generateLineOfItems = (items: iCartItem[]): iLineOfItems[] => {
         },
         unit_amount: item.price ? item.price : 0,
       },
+      price: item.priceID,
       quantity: item.quantity,
     });
   });

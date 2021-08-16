@@ -1,22 +1,39 @@
 import axios from "axios";
 import React, { FC, useState, useEffect } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Modal } from "react-bootstrap";
 import shortid from "shortid";
+import qs from "qs";
 import CartItem from "../components/CartItem";
 import { iCartItem } from "../lib/interfaces/cartItem";
 import { calculateCost } from "../lib/util/calculateCost";
 import { filterPrice } from "../lib/util/filterPrice";
 import { generateLineOfItems } from "../lib/util/generateLineOfItems";
 import { openInNewTab } from "../lib/util/openInNewTab";
+import { useLocation } from "react-router-dom";
+
+interface iState {
+  success: boolean;
+  error: boolean | null;
+}
 
 const Cart: FC = () => {
+  const location = useLocation();
+
   const [items, setItems] = useState<iCartItem[] | []>(
     localStorage.getItem("items")
       ? JSON.parse(localStorage.getItem("items") as string)
       : []
   );
 
+  const [state, setState] = useState<iState>({ success: false, error: false });
+
   useEffect(() => {
+    const { stripeStatus } = qs.parse(location.pathname);
+    console.log(location.pathname);
+    console.log(stripeStatus);
+    if (stripeStatus === "success") {
+      setState({ ...state, success: true });
+    }
     setItems([...filterPrice(items)]);
     // eslint-disable-next-line
   }, []);
@@ -41,8 +58,18 @@ const Cart: FC = () => {
     setItems([...copyOfItems]);
   };
 
+  const onCloseHandler = () => {
+    setState({ ...state, success: false, error: false });
+  };
+
   return (
     <>
+      <Modal show={state.success} onHide={onCloseHandler}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+      </Modal>
       <Row>
         <Col>
           <h1
@@ -99,6 +126,7 @@ const Cart: FC = () => {
             <Button
               style={{ marginTop: 20, marginBottom: 50 }}
               onClick={onSubmit}
+              className="checkoutButton"
             >
               Checkout
             </Button>
