@@ -1,9 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import { changeQuantity } from "../lib/util/changeQuantity";
 
 interface iProps {
   iconClass: string;
   fontSize?: number;
+  id: string;
   name: string;
   price: number;
   quantity: number;
@@ -13,11 +16,20 @@ interface iProps {
 const CartItem: FC<iProps> = ({
   iconClass,
   fontSize,
+  id,
   name,
   price,
-  quantity,
+  quantity: quantityProp,
   onDeleteHandler,
 }) => {
+  const [quantity, setQuantity] = useState<number>(quantityProp);
+
+  useEffect(() => {
+    console.log("Changing quantity");
+    changeQuantity(quantity, id);
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <>
       <Row>
@@ -39,9 +51,19 @@ const CartItem: FC<iProps> = ({
           </h3>
         </Col>
         <Col lg={2}>
-          <h3 className="text-center" style={{ marginTop: 30 }}>
-            {quantity}
-          </h3>
+          <Form.Group>
+            <Form.Control
+              type="number"
+              min={1}
+              value={quantity}
+              onChange={(e) => setQuantity(parseInt(e.target.value))}
+              style={{
+                width: "4rem",
+                margin: "auto",
+                marginTop: 30,
+              }}
+            />
+          </Form.Group>
         </Col>
         <Col lg={2}>
           <h3 className="text-center" style={{ marginTop: 30 }}>

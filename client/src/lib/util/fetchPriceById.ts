@@ -1,11 +1,17 @@
 import axios from "axios";
 import { iPrice } from "../interfaces/price";
 
-export const fetchPriceById = async (id: string): Promise<number> => {
-  const response = await axios.post("http://localhost:5000/price", { id });
+export const fetchPriceById = async (priceID: string): Promise<number> => {
+  const response = await axios.get(`http://localhost:5000/prices`);
   if (response.status !== 200) {
     //Error handling
   }
-  const data: iPrice = response.data;
-  return data.unit_amount;
+  const prices: iPrice[] = response.data.data;
+  let foundPrice = 0;
+  prices.forEach((price) => {
+    if (price.id === priceID) {
+      foundPrice = price.unit_amount;
+    }
+  });
+  return foundPrice;
 };

@@ -77,17 +77,13 @@ app.post("/create-checkout-session", async (req, res) => {
         allowed_countries: ["US"],
       },
       customer_email: customerEmail,
-      mode: "payment",
+      mode: "subscription",
       success_url: `http://localhost:3000/cart?stripeStatus=success`, //Verify URL
       cancel_url: "http://localhost:3000/cart?stripeStatus=cancelled", //Verify URL
     });
-
     // sendEmailToClient(customerEmail);
-
     console.log(session.url);
-
     // res.redirect(303, session.url);
-
     res.status(200).send(session.url);
 
     // return res.status(200).send({

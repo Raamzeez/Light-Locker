@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { iCartItem } from "../interfaces/cartItem";
-import { fetchPriceById } from "./fetchPriceById";
-import { fetchProduct } from "./fetchProduct";
+import { fetchPriceByProductID } from "./fetchPriceByProductID";
+import { fetchProductByName } from "./fetchProductByName";
 
 export const addToCart = async (
   name: string,
@@ -13,17 +13,18 @@ export const addToCart = async (
     let foundItem = false;
     items.forEach(async (item: iCartItem, index: number) => {
       if (item.name === name) {
-        const productID = (await fetchProduct(name)).id;
-        const priceID = await fetchPriceById(productID);
+        const product = await fetchProductByName(name);
+        const productID = product.id;
+        const priceID = await fetchPriceByProductID(productID);
         foundItem = true;
         let quantity = item.quantity;
         quantity++;
         items[index] = { id: productID, priceID, name, quantity, iconClass };
       }
     });
-    const productID = (await fetchProduct(name)).id;
-    const priceID = await fetchPriceById(productID);
     if (!foundItem) {
+      const productID = (await fetchProductByName(name)).id;
+      const priceID = await fetchPriceByProductID(productID);
       items.push({ id: productID, priceID, name, quantity: 1, iconClass });
     }
     localStorage.setItem("items", JSON.stringify(items));
