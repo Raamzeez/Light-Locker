@@ -25,7 +25,6 @@ const CartItem: FC<iProps> = ({
   const [quantity, setQuantity] = useState<number>(quantityProp);
 
   useEffect(() => {
-    console.log("Changing quantity");
     changeQuantity(quantity, id);
     // eslint-disable-next-line
   }, []);

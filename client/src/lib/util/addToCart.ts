@@ -9,19 +9,21 @@ export const addToCart = async (
 ): Promise<boolean> => {
   try {
     const itemsKey = localStorage.getItem("items");
-    const items = itemsKey ? JSON.parse(itemsKey) : [];
+    const items: iCartItem[] = itemsKey ? JSON.parse(itemsKey) : [];
     let foundItem = false;
-    items.forEach(async (item: iCartItem, index: number) => {
-      if (item.name === name) {
-        const product = await fetchProductByName(name);
-        const productID = product.id;
-        const priceID = await fetchPriceByProductID(productID);
-        foundItem = true;
-        let quantity = item.quantity;
-        quantity++;
-        items[index] = { id: productID, priceID, name, quantity, iconClass };
-      }
-    });
+    await Promise.all(
+      items.map(async (item: iCartItem, i: number) => {
+        if (item.name === name && !foundItem) {
+          const product = await fetchProductByName(name);
+          const productID = product.id;
+          const priceID = await fetchPriceByProductID(productID);
+          foundItem = true;
+          let quantity = item.quantity;
+          quantity++;
+          items[i] = { id: productID, priceID, name, quantity, iconClass };
+        }
+      })
+    );
     if (!foundItem) {
       const productID = (await fetchProductByName(name)).id;
       const priceID = await fetchPriceByProductID(productID);
